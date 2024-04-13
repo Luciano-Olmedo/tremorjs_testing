@@ -1,34 +1,33 @@
-import { DonutChart, Legend } from '@tremor/react';
+import { DonutChart, Legend, BarChart } from '@tremor/react';
 
 const damage = [
   {
     "name": "Magicbeast",
-    "value": 7247,
+    "dps": 7247,
   },
   {
     "name": "Sygnis",
-    "value": 4580,
+    "dps": 4580,
 
   },
   {
     "name": "Eltororeloco",
 
-    "value": 2547
+    "dps": 2547
   },
   {
     "name": "Corydosia",
 
-    "value": 3584
+    "dps": 3584
   },
   {
     "name": "Chicacombo",
-
-    "value": 5437
+    "dps": 5437
   },
   {
     "name": "Gnomanao",
 
-    "value": 4571
+    "dps": 4571
   }
 
 ]
@@ -41,6 +40,7 @@ const DonutChartHero = () => (
     <DonutChart
       data={damage}
       variant="donut"
+      category={'dps'}
       valueFormatter={dataFormatter}
       onValueChange={(v) => console.log(v)}
       label='DPS TURTLE'
@@ -54,7 +54,23 @@ const DonutChartHero = () => (
       />
 
 
+
     </div>
+    <div className='w-96 h-96 mt-12 mx-auto '>
+      <BarChart
+        data={damage}
+        index="name"
+        categories={['dps']}
+        colors={['blue']}
+        valueFormatter={dataFormatter}
+        yAxisWidth={48}
+        onValueChange={(v) => console.log(v)}
+      />
+
+
+    </div>
+
+
 
 
 
